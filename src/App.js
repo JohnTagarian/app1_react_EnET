@@ -1,11 +1,14 @@
 import React from "react";
-import Effect from "./effect";
-function App() {
-  return (
-  <>
-    <Effect />
-  </>
-  );
-}
+import { userContext } from "./context";
+import ContextHeader2 from './context-header2';
+import ContextContent2 from './context-content2';
 
-export default App;
+export default function App(){
+  let [user,setUser] = React.useState('');
+  return (
+    <userContext.Provider value={[user,setUser]}>
+      <ContextHeader2 />
+      <ContextContent2 />
+    </userContext.Provider>
+  )
+}
